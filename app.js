@@ -12,5 +12,12 @@ app.use(express.static("./static"));
 todoController(app);
 
 //listen to port
-app.listen(3000);
-console.log("You are listening to port 3000");
+let port = process.env.PORT;
+
+if (port == null || port == "") {
+
+	port = 8000;
+}
+
+app.listen(port);
+console.log("You are listening to port HEROKU");
